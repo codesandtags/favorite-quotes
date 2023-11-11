@@ -1,7 +1,7 @@
 export default function QuoteIcon() {
   return (
     <svg
-      className="w-10 h-10 mb-3 text-black dark:text-white"
+      className="w-10 h-10 mb-3 "
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"

@@ -7,4 +7,7 @@ export interface Quote {
     title: string;
   };
   createdAt: string;
+  categories: string[];
+  likes: number;
+  shared: number;
 }

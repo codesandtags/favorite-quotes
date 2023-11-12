@@ -5,10 +5,13 @@ import { IconBlockquote, IconBrandGithub } from '@tabler/icons-react';
 
 const Navbar = () => {
   // use theme from local storage if available or set light theme
+  const DARK = 'dark';
+  const LIGHT = 'night';
+
   const [theme, setTheme] = useState(
     typeof window !== 'undefined' && localStorage.getItem('theme')
       ? localStorage.getItem('theme')
-      : 'dark'
+      : DARK
   );
 
   // update state on toggle
@@ -17,9 +20,9 @@ const Navbar = () => {
       toggle: e.target.checked,
     });
     if (e.target.checked) {
-      setTheme('dark');
+      setTheme(DARK);
     } else {
-      setTheme('light');
+      setTheme(LIGHT);
     }
   };
 
@@ -51,7 +54,7 @@ const Navbar = () => {
               type="checkbox"
               onChange={handleToggle}
               // show toggle image based on localstorage theme
-              checked={theme === 'light' ? false : true}
+              checked={theme === LIGHT ? false : true}
             />
             {/* light theme sun image */}
             <span className="w-8 h-8 swap-on text-lg">☀️</span>

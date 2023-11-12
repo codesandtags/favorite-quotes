@@ -5,15 +5,11 @@ import { IconHeartFilled } from '@tabler/icons-react';
 import { Quote } from '@/types/types';
 import QuoteIcon from '../icons/QuoteIcon';
 
-export default function Quote({ quote }: { quote: Quote }) {
+export default function QuoteCard({ quote }: { quote: Quote }) {
   return (
-    <div
-      id={quote.id.toString()}
-      key={quote.id}
-      className="flex flex-col h-auto w-full lg:w-1/2 overflow-hidden rounded-xl shadow-none sm:shadow-lg bg-base-300"
-    >
+    <div id={quote.id.toString()} key={quote.id} className="card bg-base-200">
       <div className="p-4 w-full flex-1 ">
-        <div className=" rounded-md shadow-none p-8">
+        <div className="p-8">
           <QuoteIcon />
           <div className="font-semibold text-xl sm:text-4xl  mb-6">
             {quote.text}
@@ -34,7 +30,7 @@ export default function Quote({ quote }: { quote: Quote }) {
           {quote.categories.map((category, index) => (
             <span
               key={index}
-              className="inline-block bg-gray-200  rounded-md px-3 py-1 text-xs  mr-2 mb-2 text-primary cursor-pointer hover:invert"
+              className="inline-block bg-base-200 rounded-md px-3 py-1 text-xs  mr-2 mb-2 text-accent cursor-pointer hover:text-accent-focus"
             >
               #{category}
             </span>

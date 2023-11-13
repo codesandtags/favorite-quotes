@@ -30,6 +30,8 @@ export default async function GET(
     };
   });
 
+  console.log({ quotes });
+
   if (quotes && quotes.length > 0) {
     return res.status(200).json(quotes);
   }

@@ -14,6 +14,10 @@ export function getBaseUrl() {
 export async function getData() {
   const response = await fetch(`${getBaseUrl()}/api/quotes`);
 
+  console.log({
+    response,
+  });
+
   if (!response.ok) {
     console.error('Error fetching products');
     return [];

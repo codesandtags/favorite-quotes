@@ -13,7 +13,7 @@ export function getBaseUrl() {
   return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 }
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function QuotesCollection() {
   // const [quotes, setQuotes] = useState<Quote[]>([]);

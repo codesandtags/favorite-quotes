@@ -1,9 +1,14 @@
 import { Quote } from '@/types/types';
 import QuoteCard from './QuoteCard';
 import { IconBlockquote } from '@tabler/icons-react';
+import { env } from 'process';
 
 export function getBaseUrl() {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  }
+
+  return process.env.NEXT_PUBLIC_SITE_URL;
 }
 
 export async function getData() {

@@ -39,7 +39,9 @@ const Navbar = () => {
     <div className="navbar bg-base-300 shadow-lg px-4 sm:px-8">
       <div className="flex-1">
         <IconBlockquote className="text-purple-500" />
-        <h1 className="text-lg font-bold mx-4">MyQuotes</h1>
+        <a href="/" className="text-lg font-bold mx-4">
+          MyQuotes
+        </a>
       </div>
       <div className="flex-none">
         {/* Toggle button here */}

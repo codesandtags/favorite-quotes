@@ -120,6 +120,7 @@ const quotesMock = [
 export default function Home() {
   // Read "quotes" collection from Firestore and store it into a "quotes" react state
 
+  /*
   const [quotes, setQuotes] = useState<Quote[]>([]);
 
   useEffect(() => {
@@ -138,11 +139,12 @@ export default function Home() {
 
     fetchQuotes();
   }, []);
+  */
 
   return (
     <>
       <Hero />
-      <QuotesCollection quotes={quotes} />
+      <QuotesCollection quotes={[]} />
     </>
   );
 }

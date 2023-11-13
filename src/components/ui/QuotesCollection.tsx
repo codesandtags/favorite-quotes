@@ -2,8 +2,12 @@ import { Quote } from '@/types/types';
 import QuoteCard from './QuoteCard';
 import { IconBlockquote } from '@tabler/icons-react';
 
+export function getBaseUrl() {
+  return process.env.NEXT_PUBLIC_SITE_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+}
+
 export async function getData() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/quotes`);
+  const response = await fetch(`${getBaseUrl()}/api/quotes`);
 
   if (!response.ok) {
     console.error('Error fetching products');

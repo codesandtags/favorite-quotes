@@ -1,32 +1,16 @@
 import { Quote } from '@/types/types';
 import QuoteCard from './QuoteCard';
-import { collection, doc, getDocs, query } from 'firebase/firestore';
-import { db } from '@/firebase';
+import { IconBlockquote } from '@tabler/icons-react';
 
-// Read "quotes" collection from Firestore and return an array of Quote objects
-async function getData() {
-  const q = query(collection(db, 'quotes'));
-  const results = await getDocs(q);
+export async function getData() {
+  const response = await fetch('http://localhost:3000/api/quotes');
+  const data = await response.json();
 
-  return results.docs.map((doc): Quote => {
-    return {
-      id: doc.id,
-      text: doc.data().text,
-      author: {
-        name: doc.data().author.name,
-        picture: doc.data().author.picture,
-        title: doc.data().author.title,
-      },
-      categories: doc.data().categories || [],
-      likes: doc.data().likes || 0,
-      shared: doc.data().shared || 0,
-      createdAt: doc.data().createdAt,
-    };
-  });
+  return data.quotes;
 }
 
 export default async function QuotesCollection() {
-  const quotes = await getData();
+  const quotes = (await getData()) as Quote[];
 
   return (
     <section className="mb-auto h-full">
@@ -34,10 +18,21 @@ export default async function QuotesCollection() {
         className="mt-2 container px-5 py-24 mx-auto flex flex-col gap-4 justify-center items-center"
         id="quotes"
       >
-        {quotes.map((quote) => (
-          <QuoteCard key={quote.id} quote={quote} />
-        ))}
+        {quotes &&
+          quotes?.map((quote) => <QuoteCard key={quote.id} quote={quote} />)}
       </div>
+
+      {quotes && quotes.length === 0 && (
+        <div className="container mx-auto flex flex-col justify-start items-center">
+          <h2 className="text-3xl font-semibold my-4 flex">
+            <IconBlockquote />
+            <span className="px-4">No quotes yet</span>
+          </h2>
+          <p className="py-6">
+            No quotes yet. Be the first to share your favorite quote.
+          </p>
+        </div>
+      )}
     </section>
   );
 }

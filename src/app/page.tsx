@@ -1,9 +1,3 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { collection, onSnapshot, query, setDoc } from 'firebase/firestore';
-
-import { db } from '@/firebase';
-import { Quote } from '@/types/types';
 import Hero from '@/components/ui/Hero';
 import QuotesCollection from '@/components/ui/QuotesCollection';
 
@@ -118,33 +112,11 @@ const quotesMock = [
 ];
 
 export default function Home() {
-  // Read "quotes" collection from Firestore and store it into a "quotes" react state
-
-  /*
-  const [quotes, setQuotes] = useState<Quote[]>([]);
-
-  useEffect(() => {
-    const fetchQuotes = async () => {
-      const q = query(collection(db, 'quotes'));
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        const quotesDoc: any[] = [];
-
-        querySnapshot.forEach((doc) => {
-          quotesDoc.push({ ...doc.data(), id: doc.id });
-        });
-
-        setQuotes(quotesDoc);
-      });
-    };
-
-    fetchQuotes();
-  }, []);
-  */
-
+  console.log('rendering home');
   return (
     <>
       <Hero />
-      <QuotesCollection quotes={[]} />
+      <QuotesCollection />
     </>
   );
 }

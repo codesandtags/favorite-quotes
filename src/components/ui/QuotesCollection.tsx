@@ -6,8 +6,13 @@ export async function getData() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/quotes`
   );
-  const data = await response.json();
 
+  if (!response.ok) {
+    console.error('Error fetching products');
+    return [];
+  }
+
+  const data = await response.json();
   return data.quotes;
 }
 

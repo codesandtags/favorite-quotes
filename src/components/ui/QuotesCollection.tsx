@@ -10,7 +10,7 @@ export function getBaseUrl() {
     return process.env.NEXT_PUBLIC_SITE_URL;
   }
 
-  return `https://${process.env.VERCEL_URL}`;
+  return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 }
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());

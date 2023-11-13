@@ -3,7 +3,7 @@ import QuoteCard from './QuoteCard';
 import { IconBlockquote } from '@tabler/icons-react';
 
 export async function getData() {
-  const response = await fetch('http://localhost:3000/api/quotes');
+  const response = await fetch('/api/quotes');
   const data = await response.json();
 
   return data.quotes;

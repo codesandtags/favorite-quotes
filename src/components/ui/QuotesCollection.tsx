@@ -4,7 +4,7 @@ import { IconBlockquote } from '@tabler/icons-react';
 
 export async function getData() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/quotes`
+    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/quotes`
   );
 
   if (!response.ok) {

@@ -3,6 +3,7 @@ import { Quote } from '@/types/types';
 import QuoteCard from './QuoteCard';
 import { IconBlockquote } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 
 export function getBaseUrl() {
   if (process.env.NEXT_PUBLIC_SITE_URL) {
@@ -12,24 +13,19 @@ export function getBaseUrl() {
   return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 }
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 export default function QuotesCollection() {
-  const [quotes, setQuotes] = useState<Quote[]>([]);
-  const [isLoading, setLoading] = useState(true);
+  // const [quotes, setQuotes] = useState<Quote[]>([]);
+  // const [isLoading, setLoading] = useState(true);
+  const {
+    data: quotes,
+    error,
+    isLoading,
+  } = useSWR(`${getBaseUrl()}/api/quotes`, fetcher);
 
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(`${getBaseUrl()}/api/quotes`);
-
-      if (!response.ok) {
-        console.error('Error fetching products');
-        return [];
-      }
-
-      const data = await response.json();
-      setQuotes(data);
-      setLoading(false);
-    })();
-  }, []);
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
 
   return (
     <section className="mb-auto h-full">
@@ -41,7 +37,9 @@ export default function QuotesCollection() {
           <div className="flex justify-center">Loading quotes...</div>
         )}
         {quotes &&
-          quotes?.map((quote) => <QuoteCard key={quote.id} quote={quote} />)}
+          quotes?.map((quote: Quote) => (
+            <QuoteCard key={quote.id} quote={quote} />
+          ))}
       </div>
 
       {quotes && !isLoading && quotes.length === 0 && (

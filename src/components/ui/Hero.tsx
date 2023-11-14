@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <div
-      className="hero h-5/6 bg-base-200"
+      className="hero bg-base-200"
       style={{
         backgroundImage: 'url(/images/books-bg.jpeg)',
       }}

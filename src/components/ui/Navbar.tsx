@@ -6,7 +6,7 @@ import { IconBlockquote, IconBrandGithub } from '@tabler/icons-react';
 const Navbar = () => {
   // use theme from local storage if available or set light theme
   const DARK = 'dark';
-  const LIGHT = 'night';
+  const LIGHT = 'light';
 
   const [theme, setTheme] = useState(
     typeof window !== 'undefined' && localStorage.getItem('theme')

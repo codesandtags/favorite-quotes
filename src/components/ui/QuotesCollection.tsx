@@ -2,7 +2,6 @@
 import { Quote } from '@/types/types';
 import QuoteCard from './QuoteCard';
 import { IconBlockquote } from '@tabler/icons-react';
-import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 
 export function getBaseUrl() {
@@ -16,8 +15,6 @@ export function getBaseUrl() {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function QuotesCollection() {
-  // const [quotes, setQuotes] = useState<Quote[]>([]);
-  // const [isLoading, setLoading] = useState(true);
   const {
     data: quotes,
     error,
@@ -25,17 +22,14 @@ export default function QuotesCollection() {
   } = useSWR(`${getBaseUrl()}/api/quotes`, fetcher);
 
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
 
   return (
     <section className="mb-auto h-full">
       <div
-        className="container px-5 py-12 mx-auto flex flex-col gap-4 justify-center items-center"
+        className="grid px-5 py-12 mx-auto gap-4 justify-center items-center"
         id="quotes"
       >
-        {isLoading && (
-          <div className="flex justify-center">Loading quotes...</div>
-        )}
+        {isLoading && <span className="loading loading-bars loading-lg"></span>}
         {quotes &&
           quotes?.map((quote: Quote) => (
             <QuoteCard key={quote.id} quote={quote} />

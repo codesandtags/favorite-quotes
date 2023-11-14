@@ -11,18 +11,18 @@ export default function QuoteCard({ quote }: { quote: Quote }) {
       <div className="p-4 w-full flex-1 ">
         <div className="p-8">
           <QuoteIcon />
-          <div className="font-semibold text-xl sm:text-4xl  mb-6">
+          <div className="font-semibold text-2xl sm:text-4xl  mb-6">
             {quote.text}
           </div>
-          <a className="inline-flex items-center border-l-2 border-l-slate-700">
-            {/* <img
-              alt="testimonial"
-              className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
-              src="https://i.pravatar.cc/300"
-            /> */}
-            <span className="flex-grow flex flex-col pl-4">
-              <div className="font-medium text-sm  ">{quote.author.name}</div>
-              <div className="font-normal text-sm ">{quote.author.title}</div>
+          <a className="inline-flex items-center">
+            <div className="avatar mr-4">
+              <div className="w-12 rounded-full ring">
+                <img src="https://i.pravatar.cc/300" />
+              </div>
+            </div>
+            <span className="flex-grow flex flex-col pl-4 border-l-slate-700 border-l-2">
+              <div className="font-medium text-xs  ">{quote.author.name}</div>
+              <div className="font-normal text-xs ">{quote.author.title}</div>
             </span>
           </a>
         </div>

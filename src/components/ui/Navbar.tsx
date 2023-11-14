@@ -46,7 +46,10 @@ const Navbar = () => {
       <div className="flex-none">
         {/* Toggle button here */}
         <button className="btn btn-circle btn-ghost">
-          <a href="#">
+          <a
+            href="https://github.com/codesandtags/favorite-quotes"
+            target="_blank"
+          >
             <IconBrandGithub className="" />
           </a>
         </button>

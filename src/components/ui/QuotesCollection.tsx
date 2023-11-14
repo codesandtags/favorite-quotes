@@ -24,7 +24,7 @@ export default function QuotesCollection() {
   if (error) return <div>failed to load</div>;
 
   return (
-    <section className="mb-auto h-full">
+    <section className="w-full sm:w-8/12 m-auto">
       <div
         className="grid px-5 py-12 mx-auto gap-4 justify-center items-center"
         id="quotes"
@@ -37,7 +37,7 @@ export default function QuotesCollection() {
       </div>
 
       {quotes && !isLoading && quotes.length === 0 && (
-        <div className="container mx-auto flex flex-col justify-start items-center">
+        <div className="w-8/12 mx-auto flex flex-col justify-start items-center">
           <h2 className="text-3xl font-semibold my-4 flex">
             <IconBlockquote />
             <span className="px-4">No quotes yet</span>

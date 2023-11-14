@@ -15,11 +15,11 @@ export default function QuoteCard({ quote }: { quote: Quote }) {
             {quote.text}
           </div>
           <a className="inline-flex items-center">
-            <div className="avatar mr-4">
+            {/* <div className="avatar mr-4">
               <div className="w-12 rounded-full ring">
                 <img src="https://i.pravatar.cc/300" />
               </div>
-            </div>
+            </div> */}
             <span className="flex-grow flex flex-col pl-4 border-l-slate-700 border-l-2">
               <div className="font-medium text-xs  ">{quote.author.name}</div>
               <div className="font-normal text-xs ">{quote.author.title}</div>

@@ -8,24 +8,18 @@ const Navbar = () => {
   const DARK = 'dark';
   const LIGHT = 'light';
 
-  const [theme, setTheme] = useState(
-    localStorage.getItem('theme') ? localStorage.getItem('theme') : DARK
-  );
+  const localTheme =
+    typeof window !== 'undefined' && localStorage.getItem('theme');
+  const [theme, setTheme] = useState(localTheme || DARK);
 
   // update state on toggle
   const handleToggle = (e: any) => {
-    console.log({
-      toggle: e.target.checked,
-    });
-    if (e.target.checked) {
-      setTheme(DARK);
-    } else {
-      setTheme(LIGHT);
-    }
+    setTheme(theme === DARK ? LIGHT : DARK);
   };
 
   // set theme state in localstorage on mount & also update localstorage on state change
   useEffect(() => {
+    console.log('Changing theme to ', theme);
     // Perform localStorage action
     localStorage.setItem('theme', theme as string);
     const localTheme = localStorage.getItem('theme');
@@ -57,12 +51,12 @@ const Navbar = () => {
               type="checkbox"
               onChange={handleToggle}
               // show toggle image based on localstorage theme
-              checked={theme === LIGHT ? false : true}
+              checked={theme === DARK ? false : true}
             />
             {/* light theme sun image */}
-            <span className="w-8 h-8 swap-on text-lg">☀️</span>
+            <span className="w-8 h-8 swap-on fill-current text-lg">🌚</span>
             {/* dark theme moon image */}
-            <span className="w-8 h-8 swap-off text-lg">🌚</span>
+            <span className="w-8 h-8 swap-off fill-current text-lg">☀️</span>
           </label>
         </button>
       </div>

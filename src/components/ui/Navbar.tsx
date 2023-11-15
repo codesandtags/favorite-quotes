@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { IconBlockquote, IconBrandGithub } from '@tabler/icons-react';
 
@@ -9,9 +9,7 @@ const Navbar = () => {
   const LIGHT = 'light';
 
   const [theme, setTheme] = useState(
-    typeof window !== 'undefined' && localStorage.getItem('theme')
-      ? localStorage.getItem('theme')
-      : DARK
+    localStorage.getItem('theme') ? localStorage.getItem('theme') : DARK
   );
 
   // update state on toggle
@@ -36,10 +34,10 @@ const Navbar = () => {
   }, [theme]);
 
   return (
-    <div className="navbar bg-base-300 shadow-lg px-4 sm:px-8">
+    <div className="navbar bg-black shadow-lg px-4 sm:px-8">
       <div className="flex-1">
         <IconBlockquote className="text-purple-500" />
-        <a href="/" className="text-lg font-bold mx-4">
+        <a href="/" className="text-lg font-bold mx-4 text-gray-200">
           MyQuotes
         </a>
       </div>
@@ -50,7 +48,7 @@ const Navbar = () => {
             href="https://github.com/codesandtags/favorite-quotes"
             target="_blank"
           >
-            <IconBrandGithub className="" />
+            <IconBrandGithub className="text-gray-200" />
           </a>
         </button>
         <button className="btn btn-circle btn-ghost">

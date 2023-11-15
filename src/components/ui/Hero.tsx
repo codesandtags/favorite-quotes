@@ -1,6 +1,8 @@
+import Link from 'next/link';
+
 export default function Hero() {
   return (
-    <div className="hero bg-base-200 ">
+    <div className="hero bg-base-300 ">
       <div className="hero-overlay bg-opacity-90"></div>
       <div className="hero-content text-center text-neutral-content mb-6">
         <div className="max-w-md">
@@ -11,7 +13,9 @@ export default function Hero() {
             Stop losing your favorite quotes in your notes. Everyone has a
             favorite quote, so don&apos;t be shy and share it.
           </p>
-          <button className="btn btn-primary">Share now</button>
+          <Link href="/quote">
+            <button className="btn btn-primary">Share now</button>
+          </Link>
         </div>
       </div>
     </div>

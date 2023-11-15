@@ -19,7 +19,7 @@ export default function RootLayout({
     <html>
       <body className={`${inter.className}`}>
         <Navbar />
-        <main className="flex flex-col justify-between h-full">{children}</main>
+        <main className="bg-neutral">{children}</main>
       </body>
     </html>
   );

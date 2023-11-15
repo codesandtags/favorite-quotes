@@ -24,12 +24,14 @@ export default function QuotesCollection() {
   if (error) return <div>failed to load</div>;
 
   return (
-    <section className="w-full sm:w-8/12 m-auto">
+    <section className="w-full sm:w-9/12 m-auto">
       <div
-        className="grid px-5 py-12 mx-auto gap-4 justify-center items-center"
+        className="grid lg:grid-cols-2 px-5 py-12 mx-auto gap-4 justify-center items-center"
         id="quotes"
       >
-        {isLoading && <span className="loading loading-bars loading-lg"></span>}
+        {isLoading && (
+          <span className="loading loading-bars loading-lg col-span-2 items-center justify-center"></span>
+        )}
         {quotes &&
           quotes?.map((quote: Quote) => (
             <QuoteCard key={quote.id} quote={quote} />

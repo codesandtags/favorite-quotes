@@ -26,7 +26,7 @@ export default function QuotePage() {
   };
 
   return (
-    <section className="mt-6 container m-auto p-4">
+    <section className="mt-6 container m-auto p-4 ">
       <h1 className="text-3xl font-semibold my-4">Add quote</h1>
       <form className="flex flex-col gap-4 " onSubmit={handleSubmit}>
         <div className="form-control">

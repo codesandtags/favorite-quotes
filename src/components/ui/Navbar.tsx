@@ -31,7 +31,10 @@ const Navbar = () => {
     <div className="navbar bg-black shadow-lg px-4 sm:px-8">
       <div className="flex-1">
         <IconBlockquote className="text-purple-500" />
-        <a href="/" className="text-lg font-bold mx-4 text-gray-200">
+        <a
+          href="/"
+          className="text-lg font-bold mx-4 text-gray-200 dark:text-black"
+        >
           MyQuotes
         </a>
       </div>
@@ -53,9 +56,7 @@ const Navbar = () => {
               // show toggle image based on localstorage theme
               checked={theme === DARK ? false : true}
             />
-            {/* light theme sun image */}
             <span className="w-8 h-8 swap-on fill-current text-lg">🌚</span>
-            {/* dark theme moon image */}
             <span className="w-8 h-8 swap-off fill-current text-lg">☀️</span>
           </label>
         </button>

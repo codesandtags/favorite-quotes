@@ -7,9 +7,9 @@ import QuoteIcon from '../icons/QuoteIcon';
 
 export default function QuoteCard({ quote }: { quote: Quote }) {
   return (
-    <div id={quote.id.toString()} key={quote.id} className="card bg-base-200">
+    <div id={quote.id.toString()} key={quote.id} className="card-body">
       <div className="p-4 w-full flex-1 ">
-        <div className="p-8">
+        <div className="p-2">
           <QuoteIcon />
           <div className="font-semibold text-2xl sm:text-4xl  mb-6">
             {quote.text}
@@ -30,7 +30,7 @@ export default function QuoteCard({ quote }: { quote: Quote }) {
           {quote.categories.map((category, index) => (
             <span
               key={index}
-              className="inline-block bg-base-200 rounded-md px-3 py-1 text-xs  mr-2 mb-2 text-accent cursor-pointer hover:text-accent-focus"
+              className="inline-block bg-base-200 rounded-md px-3 py-1 text-xs  mr-2 mb-2 text-secondary cursor-pointer hover:text-secondary-focus"
             >
               #{category}
             </span>

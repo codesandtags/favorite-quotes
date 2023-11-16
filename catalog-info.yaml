@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: favorite-quotes
+  description: A component to store and display favorite quotes
+spec:
+  type: website
+  lifecycle: development
+  owner: user:edwin.torres

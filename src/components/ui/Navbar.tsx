@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { IconBlockquote, IconBrandGithub } from '@tabler/icons-react';
+import { pacifico } from '@/app/fonts';
 
 const Navbar = () => {
   // use theme from local storage if available or set light theme
@@ -33,9 +34,9 @@ const Navbar = () => {
         <IconBlockquote className="text-purple-500" />
         <a
           href="/"
-          className="text-lg font-bold mx-4 text-gray-200 dark:text-black"
+          className={`text-lg font-bold mx-4 text-gray-200 ${pacifico.className}`}
         >
-          MyQuotes
+          My Quotes
         </a>
       </div>
       <div className="flex-none">

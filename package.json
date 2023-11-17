@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^14.0.3",
     "@tabler/icons-react": "^2.40.0",
     "firebase": "^10.6.0",
     "next": "14.0.2",

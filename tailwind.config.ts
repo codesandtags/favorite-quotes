@@ -17,6 +17,8 @@ const config: Config = {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
+        // Add Pacifico font
+        pacifico: ['Pacifico', 'cursive'],
       },
     },
   },

@@ -14,7 +14,7 @@ export default async function GET(
   const q = query(collection(db, 'quotes'));
   const results = await getDocs(q);
 
-  const quotes = await results.docs.map((doc): Quote => {
+  const quotes = await results.docs.map((doc: any): Quote => {
     return {
       id: doc.id,
       text: doc.data().text,

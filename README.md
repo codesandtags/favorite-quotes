@@ -32,3 +32,22 @@ I love to learn new things, and expan my conform zone, so I decide to try someth
 
 ### Analytics
 - Google Analytics show track how the website is visited
+
+
+## Environment variables
+
+This project uses environment variables to work. On your local please create the file `.env.local` with the following information.
+
+```sh
+API_URL=http://localhost:3000/api
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+FIREBASE_API_KEY='VALUE'
+FIREBASE_MEASUREMENT_ID='VALUE'
+FIREBASE_AUTH_DOMAIN='VALUE'
+FIREBASE_DATABASE_URL='VALUE'
+FIREBASE_PROJECT_ID='VALUE'
+FIREBASE_STORAGE_BUCKET='VALUE'
+FIREBASE_MESSAGING_SENDER_ID='VALUE'
+FIREBASE_APP_ID='VALUE'
+```

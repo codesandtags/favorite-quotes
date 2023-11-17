@@ -1,3 +1,4 @@
+import { pacifico } from '@/app/fonts';
 import Link from 'next/link';
 
 export default function Hero() {
@@ -7,7 +8,11 @@ export default function Hero() {
       <div className="hero-content text-center text-neutral-content mb-6">
         <div className="max-w-md">
           <h1 className="text-5xl p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">
-            Share your favorite quotes with the world
+            Share your favorite{' '}
+            <span className={`text-slate-200 ${pacifico.className}`}>
+              quotes
+            </span>{' '}
+            with the world
           </h1>
           <p className="py-6">
             Stop losing your favorite quotes in your notes. Everyone has a

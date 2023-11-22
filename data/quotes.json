@@ -1,0 +1,107 @@
+[
+    {
+      "id": "1JL46V7ijMncQTWnGLnT",
+      "text": "Innovation distinguishes between a leader and a follower.",
+      "author": {
+        "name": "Steve Jobs",
+        "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/440px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg",
+        "title": "Co-founder of Apple Inc."
+      },
+      "categories": ["business", "inspirational"],
+      "likes": 0,
+      "shared": 0,
+      "createdAt": {
+        "seconds": 1699919914,
+        "nanoseconds": 553000000
+      }
+    },
+    {
+      "id": "BzogfcJ4cj5wGxWz3fTc",
+      "text": "First do it, then do it right, then do it better.",
+      "author": {
+        "name": "Addy Osmani",
+        "title": "Head of Developer Relations at Google"
+      },
+      "categories": ["business", "inspirational"],
+      "likes": 28,
+      "shared": 147,
+      "createdAt": {
+        "seconds": 1699750119,
+        "nanoseconds": 962000000
+      }
+    },
+    {
+      "id": "IG46DYTmWrBhC9omxeZ4",
+      "text": "The only way to do great work is to love what you do.",
+      "author": {
+        "name": "Steve Jobs",
+        "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/440px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg",
+        "title": "Co-founder of Apple Inc."
+      },
+      "categories": ["life"],
+      "likes": 1,
+      "shared": 0,
+      "createdAt": {
+        "seconds": 1699919522,
+        "nanoseconds": 695000000
+      }
+    },
+    {
+      "id": "ViU5LDlcJEZJRVSSeDrD",
+      "text": "Everything in software architecture is a trade-off. First Law of Software Architecture",
+      "author": {
+        "name": "Fundamentals of Software Architecture"
+      },
+      "categories": ["software"],
+      "likes": 23,
+      "shared": 1,
+      "createdAt": {
+        "seconds": 1700019941,
+        "nanoseconds": 769000000
+      }
+    },
+    {
+      "id": "Xitsjc5JcuxtNRjqHSCw",
+      "text": "Staying within your conform zone is a good way to prepare for today, but it's a terrible way to prepare for tomorrow.",
+      "author": {
+        "name": "David Peterson",
+        "title": "Google Director"
+      },
+      "categories": ["life"],
+      "likes": 0,
+      "shared": 0,
+      "createdAt": {
+        "seconds": 1700451875,
+        "nanoseconds": 146000000
+      }
+    },
+    {
+      "id": "b0QqIww8Lptfns6OjojL",
+      "text": "The best time to plant a tree was 20 years ago. The second best time is now",
+      "author": {
+        "name": "Chinese Proverb",
+        "title": "Ancient Wisdom"
+      },
+      "categories": ["wisdom"],
+      "likes": 2,
+      "shared": 0,
+      "createdAt": {
+        "seconds": 1699920178,
+        "nanoseconds": 672000000
+      }
+    },
+    {
+      "id": "jUhyldVTCWCDAQxEAA0A",
+      "text": "Why is more important than how. Second Law of Software Architecture",
+      "author": {
+        "name": "Fundamentals of Software Architecture"
+      },
+      "categories": ["software"],
+      "likes": 2,
+      "shared": 0,
+      "createdAt": {
+        "seconds": 1700020193,
+        "nanoseconds": 112000000
+      }
+    }
+]

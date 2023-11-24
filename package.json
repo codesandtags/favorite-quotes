@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "emulators:start": "firebase emulators:start --only auth,firestore,database",
+    "emulators:export": "firebase emulators:export ./firebase-seed"
   },
   "dependencies": {
     "@tabler/icons-react": "^2.40.0",

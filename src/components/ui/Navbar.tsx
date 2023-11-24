@@ -1,66 +1,118 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
-import { IconBlockquote, IconBrandGithub } from '@tabler/icons-react';
+import {
+  IconBlockquote,
+  IconBrandGithub,
+  IconMenu2,
+  IconMoon,
+  IconQuote,
+  IconSun,
+} from '@tabler/icons-react';
 import { pacifico } from '@/app/fonts';
+import Link from 'next/link';
 
-const Navbar = () => {
-  // use theme from local storage if available or set light theme
-  const DARK = 'dark';
-  const LIGHT = 'light';
+const Navbar = ({ children }: { children: ReactNode }) => {
+  // const [darkMode, setDarkMode] = useState(
+  //   typeof window !== 'undefined' && localStorage.getItem('theme') === 'dark'
+  // );
 
-  const localTheme =
-    typeof window !== 'undefined' && localStorage.getItem('theme');
-  const [theme, setTheme] = useState(localTheme || DARK);
-
-  // update state on toggle
-  const handleToggle = (e: any) => {
-    setTheme(theme === DARK ? LIGHT : DARK);
-  };
-
-  // set theme state in localstorage on mount & also update localstorage on state change
-  useEffect(() => {
-    console.log('Changing theme to ', theme);
-    // Perform localStorage action
-    localStorage.setItem('theme', theme as string);
-    const localTheme = localStorage.getItem('theme');
-    // add custom data-theme attribute to html tag required to update theme using DaisyUI
-    document.documentElement.setAttribute('data-theme', localTheme as string);
-  }, [theme]);
+  // const toggleDarkMode = () => {
+  //   const newTheme = !darkMode ? 'dark' : 'light';
+  //   setDarkMode(!darkMode);
+  //   localStorage.setItem('theme', newTheme);
+  //   document.documentElement.setAttribute('data-theme', newTheme);
+  // };
 
   return (
-    <div className="navbar bg-black shadow-lg px-4 sm:px-8">
-      <div className="flex-1">
-        <IconBlockquote className="text-purple-500" />
-        <a
-          href="/"
-          className={`text-lg font-bold mx-4 text-gray-200 ${pacifico.className}`}
-        >
-          My Quotes
-        </a>
+    <div className="drawer">
+      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col">
+        {/* Navbar */}
+        <div className="w-full navbar bg-base-300">
+          <div className="flex-none lg:hidden">
+            <label
+              htmlFor="my-drawer-3"
+              aria-label="open sidebar"
+              className="btn btn-square btn-ghost"
+            >
+              <IconMenu2 />
+            </label>
+          </div>
+          <div className="flex-1 px-2 mx-2">
+            <a
+              href="/"
+              className={`flex gap-2 font-bold mx-4 text-gray-200 ${pacifico.className}`}
+            >
+              <span className="text-lg">My Quotes</span>
+            </a>
+          </div>
+          <div className="flex-none hidden lg:block">
+            <ul className="menu menu-horizontal">
+              {/* Navbar menu content here */}
+              <li>
+                <Link href="/login" className="py-2">
+                  Sign In / Sign Up
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/codesandtags/favorite-quotes"
+                  target="_blank"
+                  className="tooltip tooltip-bottom"
+                  data-tip="GitHub"
+                >
+                  <IconBrandGithub className="text-gray-200" />
+                </a>
+              </li>
+              {/* <li>
+                <button
+                  className="btn btn-circle btn-ghost"
+                  onClick={toggleDarkMode}
+                >
+                  {darkMode ? (
+                    <IconSun className="text-gray-200" />
+                  ) : (
+                    <IconMoon className="text-gray-200" />
+                  )}
+                </button>
+              </li> */}
+            </ul>
+          </div>
+        </div>
+        {/* Page content here */}
+        {children}
       </div>
-      <div className="flex-none">
-        {/* Toggle button here */}
-        <button className="btn btn-circle btn-ghost">
-          <a
-            href="https://github.com/codesandtags/favorite-quotes"
-            target="_blank"
-          >
-            <IconBrandGithub className="text-gray-200" />
-          </a>
-        </button>
-        <button className="btn btn-circle btn-ghost">
-          <label className="swap swap-rotate w-12 h-12">
-            <input
-              type="checkbox"
-              onChange={handleToggle}
-              // show toggle image based on localstorage theme
-              checked={theme === DARK ? false : true}
-            />
-            <span className="w-8 h-8 swap-on fill-current text-lg">🌚</span>
-            <span className="w-8 h-8 swap-off fill-current text-lg">☀️</span>
-          </label>
-        </button>
+      <div className="drawer-side">
+        <label
+          htmlFor="my-drawer-3"
+          aria-label="close sidebar"
+          className="drawer-overlay"
+        ></label>
+        <aside className="bg-base-100 min-h-screen w-80">
+          <div className="bg-base-100 sticky top-0 z-10 bg-opacity-90 p-4 flex items-center gap-2">
+            <IconQuote className="text-primary text-3xl" />
+            <span className={`py-2 text-2xl ${pacifico.className}`}>
+              My Quotes
+            </span>
+          </div>
+          <ul className="menu px-2 bg-base-200">
+            {/* Sidebar content here */}
+            <li>
+              <Link href="/login" className="py-2">
+                Sign In / Sign Up
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://github.com/codesandtags/favorite-quotes"
+                target="_blank"
+              >
+                <IconBrandGithub className="text-gray-200" /> Github repo
+              </a>
+            </li>
+          </ul>
+        </aside>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { connectAuthEmulator, getAuth } from 'firebase/auth';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,10 +19,21 @@ const firebaseConfig = {
   measurementId: process.env.FIREBASE_MEASUREMENT_ID || '',
 };
 
+console.log({ firebaseConfig });
+
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// Enable analytics
-// const analytics = getAnalytics(app);
+const firebaseApp = initializeApp(firebaseConfig);
+
+// Initialize Firebase Authentication
+export const auth = getAuth(firebaseApp);
 
 // Initialize Cloud Firestore and get a reference to the service
-export const db = getFirestore(app);
+export const db = getFirestore(firebaseApp);
+
+// Connect to Firebase emulators in development mode
+console.log({ env: process.env.ENVIRONMENT });
+if (process.env.ENVIRONMENT === 'local') {
+  console.log('🔥 Connecting to Firebase emulators...');
+  connectAuthEmulator(auth, 'http://localhost:9099');
+  connectFirestoreEmulator(db, 'localhost', 8080);
+}

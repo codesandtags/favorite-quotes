@@ -10,14 +10,14 @@ export default async function GET(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  if (process.env.USE_LOCAL_DATA === 'true') {
-    // Load data from local file
-    const data = require('../../../data/quotes.json');
-    console.log('Returning quotes from local file');
-    console.log({ data });
+  // if (process.env.ENVIRONMENT === 'DEVELOPMENT') {
+  //   // Load data from local file
+  //   const data = require('../../../data/quotes.json');
+  //   console.log('Returning quotes from local file');
+  //   console.log({ data });
 
-    return res.status(200).json(data);
-  }
+  //   return res.status(200).json(data);
+  // }
 
   console.log('Returning quotes from API ');
   const q = query(collection(db, 'quotes'));

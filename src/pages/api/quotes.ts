@@ -1,8 +1,8 @@
 import { collection, doc, getDocs, query } from 'firebase/firestore';
-import { db } from '@/firebase';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Quote } from '@/types/types';
+import { db } from '@/lib/firebase/firebase';
 
 type ResponseData = Quote[];
 

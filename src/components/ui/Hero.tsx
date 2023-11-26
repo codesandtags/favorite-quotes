@@ -18,7 +18,7 @@ export default function Hero() {
             Stop losing your favorite quotes in your notes. Everyone has a
             favorite quote, so don&apos;t be shy and share it.
           </p>
-          <Link href="/quote">
+          <Link href="/quote/add">
             <button className="btn btn-primary">Share now</button>
           </Link>
         </div>

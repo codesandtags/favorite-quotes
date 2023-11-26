@@ -15,6 +15,9 @@
     "ui": {
       "enabled": true
     },
+    "hosting": {
+      "port": 5000
+    },
     "singleProjectMode": true
   },
   "hosting": {
@@ -24,7 +27,15 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
   },
   "extensions": {},
   "firestore": {

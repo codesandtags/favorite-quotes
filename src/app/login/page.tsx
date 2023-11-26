@@ -1,18 +1,30 @@
 'use client';
-import { logInWithEmailAndPassword } from '@/services/auth';
+import {
+  loginWithEmailAndPassword,
+  signInWithGoogle,
+} from '@/lib/firebase/auth';
 import { IconBrandGmail, IconBrandGoogle } from '@tabler/icons-react';
-import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { use, useEffect, useState } from 'react';
 
 export default function LoginPage() {
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
+  const router = useRouter();
 
-  useEffect(() => {}, []);
+  // Handle login with Google
+  const handleLoginWithGoogle = async () => {
+    const userCredentials = await signInWithGoogle();
+
+    if (userCredentials && userCredentials.user) {
+      router.push('/');
+    }
+  };
 
   // Handle form submit
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
@@ -20,7 +32,11 @@ export default function LoginPage() {
 
     console.log(user);
     console.log(formJson);
-    logInWithEmailAndPassword(user.email, user.password);
+    const token = await loginWithEmailAndPassword(user.email, user.password);
+
+    if (token) {
+      router.push('/');
+    }
   };
 
   return (
@@ -31,7 +47,10 @@ export default function LoginPage() {
             Sign in to your account
           </h2>
           <div className="form-control">
-            <button className="btn btn-outline btn-block">
+            <button
+              className="btn btn-outline btn-block"
+              onClick={handleLoginWithGoogle}
+            >
               <IconBrandGmail /> Continue with Gmail
             </button>
           </div>

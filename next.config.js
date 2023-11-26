@@ -22,6 +22,7 @@ const nextConfig = {
     ];
   },
   distDir: 'build',
+  reactStrictMode: false,
 };
 
 module.exports = nextConfig;

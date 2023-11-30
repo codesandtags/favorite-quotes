@@ -30,7 +30,7 @@ export async function signInWithGoogle() {
 
   try {
     const userlogged = await signInWithPopup(auth, provider);
-    document.cookie = `token=${userlogged.user.getIdToken()}; path=/`;
+    document.cookie = `token=${await userlogged.user.getIdToken()}; path=/`;
     console.log({
       userlogged,
     });

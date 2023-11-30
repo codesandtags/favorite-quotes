@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest) {
   console.log('🚨 middleware running...');
   const token = request.cookies.get('token');
 
-  console.log(token);
+  console.log({ token });
 
   if (token && token.value !== '') {
     console.log('🚨 user logged in');

@@ -11,6 +11,7 @@ export function getUser() {
   useEffect(() => {
     console.log('getUser');
     const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      console.log('onAuthStateChanged', authUser);
       setUser(authUser);
     });
 

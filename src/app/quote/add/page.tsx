@@ -1,7 +1,20 @@
 'use client';
+import { useUser } from '@/contexts/UserContext';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 export default function QuotePage() {
+  const { user, loading } = useUser();
+  const router = useRouter();
+
+  // Listen for changes on loading and authUser, redirect if needed
+  useEffect(() => {
+    console.log('Evaluating user...');
+    console.log({ user, loading });
+
+    if (!loading && !user) router.push('/login');
+  }, [user, loading]);
+
   // State management to set a newQuote
   const [newQuote, setNewQuote] = useState({
     text: '',
@@ -12,8 +25,6 @@ export default function QuotePage() {
     categories: [''],
   });
 
-  useEffect(() => {}, []);
-
   // Handle form submit
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -23,6 +34,19 @@ export default function QuotePage() {
 
     console.log(newQuote);
     console.log(formJson);
+
+    fetch('/api/quotes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newQuote),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('Quote added!');
+        console.log(res);
+      });
   };
 
   return (

@@ -53,3 +53,9 @@ FIREBASE_APP_ID='VALUE'
 
 USE_LOCAL_DATA=true
 ```
+
+
+## References
+
+- [Implementing authentication firebase](https://blog.logrocket.com/implementing-authentication-in-next-js-with-firebase/)
+- [Codelab Firebase + Nextjs](https://firebase.google.com/codelabs/firebase-nextjs#7)

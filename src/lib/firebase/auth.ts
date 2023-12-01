@@ -30,12 +30,8 @@ export async function signInWithGoogle() {
 
   try {
     const userlogged = await signInWithPopup(auth, provider);
-    document.cookie = `token=${await userlogged.user.getIdToken()}; path=/`;
-    console.log({
-      userlogged,
-    });
-
-    console.log(document.cookie);
+    const token = await userlogged.user.getIdToken();
+    document.cookie = `token=${token}; path=/`;
 
     return userlogged;
   } catch (error) {
@@ -47,8 +43,6 @@ export async function signInWithGoogle() {
 
 export async function signOut() {
   try {
-    document.cookie = 'token=; path=/';
-
     return auth.signOut();
   } catch (error) {
     console.error('Error signing out with Google', error);
